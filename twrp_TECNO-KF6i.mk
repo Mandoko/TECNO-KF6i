@@ -5,12 +5,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit some common twrp stuff.
 
 # Inherit from TECNO-KF6i device
-$(call inherit-product, device/tecno/TECNO-KF6i/device.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
+
 
 PRODUCT_DEVICE := TECNO-KF6i
 PRODUCT_NAME := twrp_TECNO-KF6i
