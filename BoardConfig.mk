@@ -88,6 +88,30 @@ BOARD_TECNO_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 # Platform
 TARGET_BOARD_PLATFORM := mt6765
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
+# Recovery modules
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice \
+    ashmemd_aidl_interface-cpp \
+    libashmemd_client
+    
+# Decryption
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+
+# Encryption
+PLATFORM_SECURITY_PATCH := 2127-12-31
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+PLATFORM_VERSION := 127
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -111,3 +135,4 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_DEVICE_VERSION := built by @Ash_the_Newest_rival
