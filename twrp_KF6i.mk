@@ -5,18 +5,20 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, vendor/twrp/config/common.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common twrp stuff.
+# Inherit some common Omni stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from TECNO-KF6i device
-$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, device/tecno/KF6i/device.mk)
 
-
-PRODUCT_DEVICE := TECNO-KF6i
-PRODUCT_NAME := twrp_TECNO-KF6i
+PRODUCT_DEVICE := KF6i
+PRODUCT_NAME := twrp_KF6i
 PRODUCT_BRAND := TECNO
-PRODUCT_MODEL := TECNO KF6i
+PRODUCT_MODEL := TECNO Spark 7
 PRODUCT_MANUFACTURER := tecno
 
 PRODUCT_GMS_CLIENTID_BASE := android-tecno
