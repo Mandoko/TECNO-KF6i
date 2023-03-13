@@ -85,6 +85,8 @@ BOARD_SUPER_PARTITION_GROUPS := tecno_dynamic_partitions
 BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product
 BOARD_TECNO_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
+BOARD_PREBUILT_GPT_LOCATION := proprietary/partition_tables/gpt.bin
+
 # Platform
 TARGET_BOARD_PLATFORM := mt6765
 
